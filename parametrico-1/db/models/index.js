@@ -6,6 +6,10 @@ const { Order , OrderSchema } = require('./order.model');
 const { OrderProduct , OrderProductSchema } = require('./order-product.model');
 const { CardOptions, cardOptionsSchema} = require('./cardoptions.model');
 const { CardCalculation, cardCalculationSchema} = require('./cardcalculation.model');
+const { Client, clientSchema} = require('./client.model');
+const { Done, doneSchema} = require('./done.model');
+const { CapacityBill, capacityBillSchema} = require('./capacitybill.model');
+
 
 
 function setupModels(sequelize) {
@@ -17,6 +21,10 @@ function setupModels(sequelize) {
   OrderProduct.init(OrderProductSchema, OrderProduct.config(sequelize));
   CardOptions.init(cardOptionsSchema,CardOptions.config(sequelize));
   CardCalculation.init(cardCalculationSchema,CardCalculation.config(sequelize));
+  Client.init(clientSchema,Client.config(sequelize));
+  Done.init(doneSchema,Done.config(sequelize));
+  CapacityBill.init(capacityBillSchema,CapacityBill.config(sequelize));
+
 
   User.associate(sequelize.models);
   Customer.associate(sequelize.models);
@@ -25,7 +33,10 @@ function setupModels(sequelize) {
   Order.associate(sequelize.models);
   OrderProduct.associate(sequelize.models);
   CardOptions.associate(sequelize.models);
-  CardCalculation.associate(sequelize.models)
+  CardCalculation.associate(sequelize.models);
+  Client.associate(sequelize.models);
+  Done.associate(sequelize.models);
+  CapacityBill.associate(sequelize.models)
 }
 
 module.exports = setupModels;

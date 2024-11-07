@@ -1,49 +1,51 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
-const CARD_CALCULATION_TABLE = 'cardcalculation';
+const CAPACITY_BILL_TABLE = 'capacitybill';
 
-const cardCalculationSchema = {
+const capacityBillSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  agent: {
+  clientId: {
+    allowNull: false,
+    type: DataTypes.INTEGER
+  },
+  enrollment: {
+    allowNull: false,
+    type: DataTypes.INTEGER
+  },
+  type: {
     type: DataTypes.STRING
   },
-  variable: {
+  subtype: {
     type: DataTypes.STRING,
   },
-  options: {
+  concept: {
     type: DataTypes.TEXT,
   },
   value: {
     type: DataTypes.DECIMAL,
   },
-  weight: {
-    type: DataTypes.DECIMAL,
 
-  },
  // name: {
  //  type: DataTypes.TEXT,
   //},
-  clientId: {
-    allowNull: false,
-    type: DataTypes.INTEGER
-  }
+
 
 }
 
-class CardCalculation extends Model {
+class CapacityBill extends Model {
   static associate(models){
 
   }
   static config(sequelize){
     return {
       sequelize,
-      tablename: CARD_CALCULATION_TABLE,
-      modelName: 'CardCalculation',
+      tablename: CAPACITY_BILL_TABLE,
+      modelName: 'CapacityBill',
       timestamps: false
     }
   }
@@ -51,4 +53,4 @@ class CardCalculation extends Model {
 
 
 
-module.exports = { CARD_CALCULATION_TABLE, cardCalculationSchema, CardCalculation };
+module.exports = { CAPACITY_BILL_TABLE, capacityBillSchema, CapacityBill };

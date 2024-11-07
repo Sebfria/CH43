@@ -6,8 +6,10 @@ const variable = Joi.string();
 const options = Joi.string();
 const value = Joi.number();
 const weight = Joi.number().precision(5);
-const name = Joi.string();
-
+//const name = Joi.string();
+const clientId = Joi.number().integer();
+const optionCardId = Joi.number().integer();
+const numberCard = Joi.number().integer();
 
 
 
@@ -20,7 +22,7 @@ const createCardCalculationSchema = Joi.object({
   options: options,
   value: value,
   weight: weight,
-  name: name,
+ // name: name,
 });
 
 const updateCardCalculationSchema = Joi.object({
@@ -29,7 +31,7 @@ const updateCardCalculationSchema = Joi.object({
   options: options,
   value: value,
   weight: weight,
-  name: name,
+  //name: name,
 });
 
 const getCardCalculationSchema = Joi.object({
